@@ -1,10 +1,17 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Ioana_Popa_lab2.Data;
+using Microsoft.Extensions.Options;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddRazorPages();
+builder.Services.AddRazorPages(options =>
+{
+    options.Conventions.AuthorizeFolder("/Books");
+});
+options.Conventions.AllowAnonymousToPage("/Books/Index");
+options.Conventions.AllowAnonymousToPage("/Books/Details");
+});
 builder.Services.AddDbContext<Ioana_Popa_lab2Context>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("Ioana_Popa_lab2Context") ?? throw new InvalidOperationException("Connection string 'Ioana_Popa_lab2Context' not found.")));
 
