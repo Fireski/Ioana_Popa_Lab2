@@ -16,5 +16,6 @@ namespace Ioana_Popa_lab2.Data
 
         public DbSet<Ioana_Popa_lab2.Models.Book> Book { get; set; } = default!;
         public DbSet<Ioana_Popa_lab2.Models.Publisher> Publisher { get; set; } = default!;
+        public DbSet<Ioana_Popa_lab2.Models.BookCategory> BookCategory { get; set; } = default!;
     }
 }
